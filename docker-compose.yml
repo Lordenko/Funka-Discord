@@ -3,7 +3,7 @@ services:
     container_name: funka-discord-bot
     build: 
       context: ./
-      target: dev-runner
+      target: prod-runner
     restart: always
     volumes:
       - ./:/usr/src/app
