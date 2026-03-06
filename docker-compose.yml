@@ -1,7 +1,17 @@
-version: "3"
 services:
-  app:
-    build: .
-    command: node build/main.js
-    environment:
-      - BOT_TOKEN=${BOT_TOKEN}
+  bot:
+    container_name: funka-discord-bot
+    build: 
+      context: ./
+      target: dev-runner
+    restart: always
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    env_file: 
+      - ./.env
+    networks:
+      - kinkeeper-private
+
+networks:
+  kinkeeper-private:
